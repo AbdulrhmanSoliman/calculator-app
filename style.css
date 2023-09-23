@@ -1,0 +1,352 @@
+:root {
+  /* background */
+  --main-background: hsl(222, 26%, 31%);
+  --toggle-keypad-background: hsl(223, 31%, 20%);
+  --screen-background: hsl(224, 36%, 15%);
+  /* Button Numbers color */
+  --numberkey-background: hsl(30, 25%, 89%);
+  --numberkey-shadow: hsl(28, 16%, 65%);
+  /* Reset and toggle buttons */
+  --specialkey-background: hsl(225, 21%, 49%);
+  --specialkey-shadow: hsl(224, 28%, 35%);
+  --equal-key-background: hsl(6, 63%, 50%);
+  --equal-key-shadow: hsl(6, 70%, 34%);
+  /* Text */
+  --Very-dark-grayish-blue: hsl(198, 20%, 13%);
+  --White-text: hsl(0, 0%, 100%);
+  --Light-yellow: hsl(52, 100%, 62%);
+}
+/*#--------- RESET ROLES --------- */
+/* Height is 715px */
+/* Width is 540px */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  background-color: var(--main-background);
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "League Spartan", sans-serif;
+  transition: background-color 0.3s;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*#------------ Styling ------------ */
+main {
+  max-width: 540px;
+  max-height: 715px;
+}
+/* The top part of the calc */
+.top__part {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  /* align-items: center; */
+}
+.top__part h1 {
+  font-size: 2rem;
+  color: var(--White-text);
+  line-height: 1;
+  margin-left: 10px;
+  letter-spacing: -1px;
+}
+.top__part .theme {
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+  font-size: 1.3rem;
+  color: var(--White-text);
+}
+.top__part .theme > span {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+.top__part .theme .theme__changer p {
+  display: flex;
+  gap: 15px;
+  font-size: 0.9rem;
+  justify-content: center;
+}
+.top__part .theme .theme__changer div {
+  width: 70px;
+  height: 25px;
+  background-color: var(--toggle-keypad-background);
+  border-radius: 35px;
+  cursor: pointer;
+  position: relative;
+}
+.top__part .theme .theme__changer div span.ball {
+  position: absolute;
+  background-color: var(--equal-key-background);
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  left: 5px;
+  top: 5px;
+  transition: 0.3s;
+}
+/* Calc Screen */
+.screen {
+  width: 100%;
+  height: 127px;
+  background-color: var(--screen-background);
+  margin-block-start: 2rem;
+  margin-block-end: 1.5rem;
+  border-radius: 10px;
+  padding: 20px;
+  color: var(--White-text);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 3.5rem;
+  border: 0;
+  outline: 0;
+  text-align: right;
+}
+/* Calc Keys */
+main .keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: var(--toggle-keypad-background);
+  border-radius: 10px;
+  text-align: center;
+  padding: 32px;
+  gap: 25px;
+  height: 480px;
+}
+/* table {
+  width: 100%;
+} */
+main .keys span {
+  border-radius: 10px;
+  height: 59px;
+  padding-top: 3px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s;
+}
+main .keys span.num {
+  background-color: var(--numberkey-background);
+  font-size: 2.5rem;
+  color: var(--Very-dark-grayish-blue);
+  box-shadow: 0 4px 0 var(--numberkey-shadow);
+  transition: background-color 0.3s;
+}
+
+main .keys span.num:hover {
+  background-color: var(--White-text);
+}
+main .keys span.del__reset {
+  background-color: var(--specialkey-background);
+  text-transform: uppercase;
+  padding-top: 12px;
+  font-size: 1.7rem;
+  color: var(--White-text);
+  box-shadow: 0 4px 0 var(--specialkey-shadow);
+}
+main .keys span.del__reset:hover {
+  background-color: #a2b3e1;
+}
+main .keys span:nth-last-child(2) {
+  grid-column: span 2;
+}
+main .keys span:last-child {
+  grid-column: span 2;
+}
+main .keys span.equal {
+  background-color: var(--equal-key-background);
+  padding-top: 9px;
+  color: var(--White-text);
+  box-shadow: 0 4px 0 var(--equal-key-shadow);
+}
+main .keys span.equal:hover,
+.top__part .theme .theme__changer div:hover span.ball {
+  background-color: #f96c5b;
+}
+body .keys span.num.clicked {
+  box-shadow: 0 4px 0 #fff;
+}
+body .keys span.del__reset.clicked {
+  box-shadow: 0 4px 0 #a2b3e1;
+}
+body .keys span.equal.clicked {
+  box-shadow: 0 4px 0 #f96c5b;
+}
+/* Theme 2 */
+body.theme-2 {
+  --main-background: hsl(0, 0%, 90%);
+}
+
+body.theme-2 .top__part h1,
+body.theme-2 .top__part .theme,
+body.theme-2 .screen,
+body.theme-2 .keys span.del__reset,
+body.theme-2 .keys span.equal {
+  --White-text: hsl(60, 10%, 19%);
+}
+body.theme-2 .theme .theme__changer div,
+body.theme-2 .keys {
+  --toggle-keypad-background: hsl(0, 5%, 81%);
+}
+body.theme-2 .theme .theme__changer div span.ball {
+  --equal-key-background: hsl(25, 98%, 40%);
+}
+body.theme-2 .screen {
+  --screen-background: hsl(0, 0%, 93%);
+}
+body.theme-2 .keys span.del__reset {
+  --specialkey-background: hsl(185, 42%, 37%);
+  --specialkey-shadow: hsl(185, 58%, 25%);
+  color: white;
+}
+body.theme-2 .keys span.del__reset:hover {
+  background-color: #62b5bd;
+}
+body.theme-2 .keys span.del__reset.clicked {
+  box-shadow: 0 4px 0 #62b5bd;
+}
+body.theme-2 .keys span.equal.clicked {
+  box-shadow: 0 4px 0 #ff8b38;
+}
+body.theme-2 .keys span.equal {
+  --equal-key-background: hsl(25, 98%, 40%);
+  --equal-key-shadow: hsl(25, 99%, 27%);
+  color: white;
+}
+body.theme-2 .keys span.equal:hover,
+body.theme-2 .theme .theme__changer div:hover span.ball {
+  background-color: #ff8b38;
+}
+/* Theme 3 */
+body.theme-3 {
+  --main-background: hsl(268, 75%, 9%);
+}
+
+body.theme-3 .top__part h1,
+body.theme-3 .top__part .theme,
+body.theme-3 .screen,
+body.theme-3 .keys span.del__reset,
+body.theme-3 .keys span.equal {
+  --White-text: hsl(52, 100%, 62%);
+}
+body.theme-3 .theme .theme__changer div,
+body.theme-3 .keys {
+  --toggle-keypad-background: hsl(268, 71%, 12%);
+}
+body.theme-3 .theme .theme__changer div span.ball {
+  --equal-key-background: hsl(176, 100%, 44%);
+}
+body.theme-3 .screen {
+  --screen-background: hsl(268, 71%, 12%);
+}
+body.theme-3 .keys span.num {
+  --numberkey-background: hsl(281, 89%, 26%);
+  --numberkey-shadow: hsl(285, 91%, 52%);
+  --Very-dark-grayish-blue: hsl(52, 100%, 62%);
+}
+body.theme-3 .keys span.num.clicked {
+  box-shadow: 0 4px 0 #6b33ae;
+}
+body.theme-3 .keys span.num:hover {
+  background-color: #6b33ae;
+}
+body.theme-3 .keys span.del__reset {
+  --specialkey-background: hsl(281, 89%, 26%);
+  --specialkey-shadow: hsl(285, 91%, 52%);
+  color: white;
+}
+body.theme-3 .keys span.del__reset:hover {
+  background-color: #8631b0;
+}
+body.theme-3 .keys span.equal {
+  --equal-key-background: hsl(176, 100%, 44%);
+  --equal-key-shadow: hsl(177, 92%, 70%);
+  color: hsl(198, 20%, 13%);
+}
+body.theme-3 .keys span.equal:hover,
+body.theme-3 .theme .theme__changer div:hover span.ball {
+  background-color: #94fff9;
+}
+body.theme-3 .keys span.del__reset.clicked {
+  box-shadow: 0 4px 0 #8631b0;
+}
+body.theme-3 .keys span.equal.clicked {
+  box-shadow: 0 4px 0 #94fff9;
+}
+
+@media screen and (width <= 767px) {
+  body {
+    padding: 15px;
+  }
+  main .keys {
+    gap: 12px;
+    padding: 20px;
+    align-items: center;
+  }
+}
