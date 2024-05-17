@@ -22,6 +22,8 @@ Users should be able to:
 - Perform mathmatical operations like addition, subtraction, multiplication, and division
 - Adjust the color theme based on their preference
 - **Bonus**: Have their initial theme preference checked using `prefers-color-scheme` and have any additional changes saved in the browser
+- User only type one opreator between any two digits to enhance UX
+- If user type any characters not digits, it well automatically replaced with digits when only start type at least one number
 
 ### Links
 
@@ -35,6 +37,8 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - JavaScript
+- JS Regex
+- math.js library
 
 ## Author
 
