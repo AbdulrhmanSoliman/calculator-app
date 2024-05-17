@@ -27,13 +27,14 @@ const equal = document.querySelector(".equal");
 // calculating function
 equal.onclick = function () {
   if (screen.value != "") {
-    let convertX = screen.value.replaceAll("x", "*");
-    screen.value = eval(convertX);
+    let result = screen.value.replaceAll("x", "*");
+    screen.value = math.evaluate(result);
   } else {
     screen.value = "";
   }
 };
-// ? I tried to empty the value of the calc screen after calculating each operation when clicking on any number but it not working because it also affected the original numbers when the user click
+
+// ? I tried to empty the value of the calc screen after calculating each operation completed when clicking on any number but it not working because it also affected the original numbers when the user click
 
 // Delete and Reset button
 let delReset = document.querySelectorAll(".del__reset");
