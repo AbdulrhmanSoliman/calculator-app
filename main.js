@@ -39,6 +39,7 @@ equal.onclick = function () {
 // Delete and Reset button
 let delBtn = document.querySelectorAll(".del__reset")[0];
 let resetBtn = document.querySelectorAll(".del__reset")[1];
+let specialBtn = document.querySelectorAll(".del__reset")
 // A function which remove the last number
 function removeNumber() {
   let delArr = screen.value.split("");
@@ -85,7 +86,7 @@ nums.forEach((key) => {
   clicked(key);
 });
 
-delReset.forEach((key) => {
+specialBtn.forEach((key) => {
   clicked(key);
 });
 
@@ -115,7 +116,7 @@ window.addEventListener("keydown", (key) => {
     removeNumber();
   }
   nums.forEach((num) => {
-    if (key.key == num.textContent) {
+    if (key.key == num.innerHTML) {
       num.click();
     }
   });
