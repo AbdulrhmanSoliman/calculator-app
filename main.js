@@ -37,13 +37,17 @@ equal.onclick = function () {
 // ? I tried to empty the value of the calc screen after calculating each operation completed when clicking on any number but it not working because it also affected the original numbers when the user click
 
 // Delete and Reset button
-let delReset = document.querySelectorAll(".del__reset");
-delReset[0].onclick = function () {
+let delBtn = document.querySelectorAll(".del__reset")[0];
+let resetBtn = document.querySelectorAll(".del__reset")[1];
+// A function which remove the last number
+function removeNumber() {
   let delArr = screen.value.split("");
   delArr.pop();
   screen.value = delArr.join("");
-};
-delReset[1].onclick = function () {
+}
+
+delBtn.onclick = removeNumber;
+resetBtn.onclick = function () {
   screen.value = "";
 };
 // Theme changer
@@ -98,8 +102,21 @@ function clicked(key) {
   });
 }
 
+// when pressing enter the result should be visible
 window.addEventListener("keydown", (key) => {
   if (key.key == "Enter") {
     equal.click();
   }
+});
+
+// perform a click action when typing in keyboard
+window.addEventListener("keydown", (key) => {
+  if (key.key === "Backspace") {
+    removeNumber();
+  }
+  nums.forEach((num) => {
+    if (key.key == num.textContent) {
+      num.click();
+    }
+  });
 });
